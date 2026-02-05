@@ -1,0 +1,10 @@
+export const selectProducts = (state) => state.app.products
+export const selectCart = (state) => state.app.cart
+export const selectCartCount = (state) => state.app.cartCount
+export const selectCartItemsCount = (state) => state.app.cartItemsCount
+export const selectTotalPrice = (state) => state.app.totalPrice
+export const selectCartTotalAmount = (state) => state.app.cartTotalAmount
+export const selectCartTotalSum = (state) => state.app.cartTotalSum
+export const selectUser = (state) => state.app.user
+export const selectLoading = (state) => state.app.loading
+export const selectError = (state) => state.app.error
