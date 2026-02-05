@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { clearCartAction, removeFromCartAction, updateQuantityAction } from "store/actions/appActions"
+import { clearCartAction, removeFromCartAction, updateQuantityAction } from "store"
 
 export const useInitCart = () => {
   const dispatch = useDispatch()
@@ -33,6 +33,8 @@ export const useInitCart = () => {
     }, 1000)
   }, [setShowCheckout, dispatch, setIsOpen])
 
+  const onClickCartToggle = useCallback(() => setIsOpen((isOpenToggle) => !isOpenToggle), [setIsOpen]);
+
   return {
     cart,
     cartCount,
@@ -43,6 +45,7 @@ export const useInitCart = () => {
     handleRemoveItem,
     handleUpdateQuantity,
     handleCheckout,
+    onClickCartToggle,
   }
 }
 

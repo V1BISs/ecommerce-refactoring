@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { UserInfo } from "./UserInfo"
 import { useDispatch, useSelector } from "react-redux"
-import { setUser } from "store/store"
+import { setUser } from "store"
 
 export const Header = () => {
   const dispatch = useDispatch()

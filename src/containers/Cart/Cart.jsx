@@ -1,16 +1,22 @@
 import { useInitCart } from "./hooks"
+import { CartCard } from "./CartCard"
 
 export const Cart = () => {
-  const { cart,
+  const { 
+    cart,
     cartCount,
     totalPrice,
-    isOpen, setIsOpen, showCheckout, handleRemoveItem, handleCheckout, handleUpdateQuantity } = useInitCart()
+    isOpen,  
+    showCheckout, 
+    handleCheckout,
+    onClickCartToggle,
+  } = useInitCart()
 
   return (
     <div className="cart">
       <button
         className="cart-toggle"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onClickCartToggle}
       >
         Корзина ({cartCount})
       </button>
@@ -19,37 +25,14 @@ export const Cart = () => {
         <div className="cart-dropdown">
           <div className="cart-header">
             <h3>Корзина</h3>
-            <button onClick={() => setIsOpen(false)}>×</button>
+            <button onClick={onClickCartToggle}>×</button>
           </div>
 
           <div className="cart-items">
             {cart.length === 0 ? (
               <p>Корзина пуста</p>
             ) : (
-              cart.map(item => (
-                <div key={item.id} className="cart-item">
-                  <img src={item.image} alt={item.name} />
-                  <div className="item-details">
-                    <h4>{item.name}</h4>
-                    <p>${item.price}</p>
-                    <div className="quantity-controls">
-                      <button onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}>
-                        -
-                      </button>
-                      <span>{item.quantity}</span>
-                      <button onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}>
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <button
-                    className="remove-btn"
-                    onClick={() => handleRemoveItem(item.id)}
-                  >
-                    Удалить
-                  </button>
-                </div>
-              ))
+              cart.map(item => (<CartCard item={item} key={item.id}/>))
             )}
           </div>
 

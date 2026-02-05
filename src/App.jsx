@@ -1,9 +1,7 @@
 import { Provider } from 'react-redux'
-import { store } from './store/store'
+import { store } from 'store'
 import './styles/App.css'
-import { ProductList } from 'containers'
-import { Cart } from 'containers/Cart/Cart'
-import { Header } from 'containers/Header/Header'
+import { ProductList, Cart, Header } from 'containers'
 
 function App() {
   return (

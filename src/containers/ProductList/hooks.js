@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setLoading, setProducts } from "store"
+import { setLoading, setProducts, addToCartAction } from "store"
 import { mockProducts } from "./mocks"
-import { addToCartAction } from "store"
-
 
 export const useInit = () => {
   const dispatch = useDispatch()
